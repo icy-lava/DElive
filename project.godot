@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ldjam 53"
-run/main_scene="res://level/level1.tscn"
+run/main_scene="res://level/world.tscn"
 run/delta_sync_after_draw=true
 config/icon="res://asset/image/icon.png"
 
