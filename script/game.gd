@@ -12,9 +12,10 @@ func _ready() -> void:
 	OS.set_window_title("ldjam 53")
 	set_background_color(background_color)
 
-func spawn(scene: PackedScene) -> Node2D:
+func spawn(scene: PackedScene, global_position: Vector2) -> Node2D:
 	var instance: Node2D = scene.instance()
-	$"/root/World".add_child(instance)
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
 	return instance
 
 func damp(from: Vector2, to: Vector2, smoothing: float, delta: float) -> Vector2:

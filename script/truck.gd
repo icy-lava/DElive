@@ -10,7 +10,7 @@ func drop():
 	assert(len(drop_scenes) > 0, "there's nothing to spawn, add some drop scenes")
 	
 	var scene: PackedScene = drop_scenes[current_drop]
-	var instance := Game.spawn(scene)
-	instance.global_position = spawn_point.global_position
+	var instance := Game.spawn(scene, spawn_point.global_position)
+#	instance.global_position = spawn_point.global_position
 	
 	current_drop = (current_drop + 1) % len(drop_scenes)

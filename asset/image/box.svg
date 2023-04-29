@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="192"
+   width="128"
    height="128"
-   viewBox="0 0 384 256"
+   viewBox="0 0 128 128"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="boid.svg"
+   sodipodi:docname="box.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="2"
-     inkscape:cx="24.75"
-     inkscape:cy="84"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="30.405592"
+     inkscape:cy="43.84062"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
      inkscape:window-x="-8"
@@ -61,8 +61,8 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#ffffff;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
-       d="M 48,128 192,0 336,128 192,256 Z"
-       id="path627" />
+       id="rect1547"
+       style="fill:#ffffff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       d="M 24 0 C 10.704013 0 1.4854769e-16 10.704013 0 24 L 0 104 C 0 117.29599 10.704013 128 24 128 L 104 128 C 117.29599 128 128 117.29599 128 104 L 128 24 C 128 10.704013 117.29599 1.4854769e-16 104 0 L 24 0 z M 24 15.919922 L 104 15.919922 C 108.75161 15.919922 112.08008 19.248393 112.08008 24 L 112.08008 104 C 112.08008 108.75161 108.75161 112.08008 104 112.08008 L 24 112.08008 C 19.248393 112.08008 15.919922 108.75161 15.919922 104 L 15.919922 24 C 15.919922 19.248393 19.248393 15.919922 24 15.919922 z " />
   </g>
 </svg>

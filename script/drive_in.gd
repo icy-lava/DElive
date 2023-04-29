@@ -4,6 +4,9 @@ export var drive_in_time: float = 1
 export var drive_out_time: float = 1
 export var drop_off_time: float = 0.4
 
+func start() -> void:
+	$DriveAnimation.play("drive_in")
+
 func _on_DriveAnimation_animation_started(anim_name: String) -> void:
 	var animation := $DriveAnimation
 	if anim_name == 'drive_in':

@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():
-	var bullet: Bullet = Game.spawn(bullet_scene)
+	var bullet: Bullet = Game.spawn(bullet_scene, global_position + direction * 72)
 	bullet.direction = direction
-	bullet.global_position = global_position + direction * 72
 	last_shot_frame = Game.get_frame_id()

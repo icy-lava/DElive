@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://object/drive_in.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 896, -320, -213.494, -484.045, 213.494, 484.045, 1152, 576, 0, 0, 0, 0, 1792, 1280 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "phase1"
+step = 0.0333333
+tracks/0/type = "method"
+tracks/0/path = NodePath("DrivePath")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="DrivePath" parent="." instance=ExtResource( 3 )]
+position = Vector2( -896, -640 )
+curve = SubResource( 1 )
+drive_in_time = 1.5
+drive_out_time = 1.5
+
+[node name="Sequence" type="AnimationPlayer" parent="."]
+autoplay = "phase1"
+anims/phase1 = SubResource( 2 )
