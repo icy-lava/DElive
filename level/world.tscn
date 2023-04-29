@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://object/safezone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://object/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://object/wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/level1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://object/shooty.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -65,6 +66,9 @@ position = Vector2( 1920.5, 1088 )
 shape = SubResource( 4 )
 
 [node name="Level" parent="." instance=ExtResource( 4 )]
+
+[node name="Shooty" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1216, 256 )
 
 [editable path="Bounds/Wall"]
 [editable path="Bounds/Wall2"]

@@ -1,6 +1,7 @@
 extends Dieable
 class_name Bullet
 
+var shooter: Node2D = null
 var direction: Vector2 = Vector2.RIGHT
 var speed: float = 2200
 var life_max: float = 0.75
@@ -20,8 +21,12 @@ func _physics_process(delta: float) -> void:
 	modulate.a = sqrt(life / life_max)
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
-	if body.is_in_group('enemy'):
-		body.hurt(damage)
+	if body == shooter:
+		return
+	if body is Living:
+		var living: Living = body
+		living.hurt(damage)
+		living.velocity += velocity * 2
 		die()
 	if body.is_in_group('box'):
 		var box: RigidBody2D = body

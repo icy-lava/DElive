@@ -2,14 +2,14 @@ extends Node
 
 var background_color: Color = Color("#131d25") setget set_background_color, get_background_color
 
-func set_background_color(color: Color):
+func set_background_color(color: Color) -> void:
 	VisualServer.set_default_clear_color(color)
 
 func get_background_color() -> Color:
 	return background_color
 
 func _ready() -> void:
-	OS.set_window_title("ldjam 53")
+#	OS.set_window_title("ldjam 53")
 	set_background_color(background_color)
 
 func spawn(scene: PackedScene, global_position: Vector2) -> Node2D:
@@ -20,6 +20,15 @@ func spawn(scene: PackedScene, global_position: Vector2) -> Node2D:
 
 func damp(from: Vector2, to: Vector2, smoothing: float, delta: float) -> Vector2:
 	return lerp(from, to, 1.0 - pow(smoothing, delta))
+
+func get_nearest_player(global_position: Vector2) -> Player:
+	var result: Player = null
+	for _player in get_tree().get_nodes_in_group('player'):
+		var player: Player = _player
+		var dist: float = player.global_position.distance_to(global_position)
+		if result == null or dist < result.global_position.distance_to(global_position):
+			result = player
+	return result
 
 func get_frame_id() -> int:
 	return Engine.get_physics_frames()

@@ -1,11 +1,8 @@
-extends KinematicBody2D
+extends Living
 class_name Player
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.RIGHT
-var fire_interval: int = 20
-var last_shot_frame: int = Game.get_frame_id() - fire_interval
-export (PackedScene) var bullet_scene: PackedScene
 
 func _physics_process(delta: float) -> void:
 	# process movement
@@ -18,12 +15,5 @@ func _physics_process(delta: float) -> void:
 	rotation = direction.angle()
 	
 	# shooting
-	var shot_time: int = Game.get_frame_id() - last_shot_frame
-	if shot_time >= fire_interval and Input.is_action_pressed("shoot"):
-		shoot()
-
-func shoot():
-	var bullet: Bullet = Game.spawn(bullet_scene, global_position + direction * 72)
-	bullet.direction = direction
-	velocity -= direction * 500
-	last_shot_frame = Game.get_frame_id()
+	if Input.is_action_pressed("shoot"):
+		$Gun.shoot()

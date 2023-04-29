@@ -38,13 +38,7 @@ func _physics_process(delta: float) -> void:
 			maintain_weight += weight
 			maintain += boid.velocity * weight
 	
-	var players := get_tree().get_nodes_in_group('player')
-	var target: Player = null
-	for _player in players:
-		var player: Player = _player
-		var dist: float = player.position.distance_to(position)
-		if target == null or dist < target.position.distance_to(position):
-			target = player
+	var target: Player = Game.get_nearest_player(global_position)
 	
 	center /= center_weight
 	var pdiff := center - position

@@ -29,12 +29,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://script/dieable.gd"
 }, {
+"base": "Node2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://script/gun.gd"
+}, {
 "base": "Dieable",
 "class": "Living",
 "language": "GDScript",
 "path": "res://script/living.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Living",
 "class": "Player",
 "language": "GDScript",
 "path": "res://script/player.gd"
@@ -43,6 +48,11 @@ _global_script_classes=[ {
 "class": "Safezone",
 "language": "GDScript",
 "path": "res://script/safezone.gd"
+}, {
+"base": "Living",
+"class": "Shooty",
+"language": "GDScript",
+"path": "res://script/shooty.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Truck",
@@ -54,15 +64,17 @@ _global_script_class_icons={
 "Box": "",
 "Bullet": "",
 "Dieable": "",
+"Gun": "",
 "Living": "",
 "Player": "",
 "Safezone": "",
+"Shooty": "",
 "Truck": ""
 }
 
 [application]
 
-config/name="ldjam 53"
+config/name="DElive"
 run/main_scene="res://level/world.tscn"
 run/delta_sync_after_draw=true
 config/icon="res://asset/image/icon.png"
