@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/boid.gd" type="Script" id=1]
 [ext_resource path="res://asset/image/boid.svg" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 24.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
 
 [node name="Boid" type="KinematicBody2D" groups=["boid", "enemy"]]
 modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
@@ -19,3 +22,10 @@ texture = ExtResource( 2 )
 
 [node name="BoidShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtShape" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
