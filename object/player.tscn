@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/player.gd" type="Script" id=1]
-[ext_resource path="res://asset/image/icon.png" type="Texture" id=2]
+[ext_resource path="res://object/bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/image/player.svg" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 52.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 1.00706 )
+texture = ExtResource( 3 )
 
 [node name="PlayerShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
