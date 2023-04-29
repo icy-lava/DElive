@@ -67,7 +67,15 @@ func _physics_process(delta: float) -> void:
 		velocity = Game.damp(velocity, velocity - perp * 2, 0.8, delta)
 	
 	velocity = move_and_slide(velocity)
-	velocity = Game.damp(velocity, Vector2.ZERO, 0.95, delta)
+	velocity = Game.damp(velocity, Vector2.ZERO, 0.9, delta)
 	
 	direction = velocity.normalized()
 	rotation = direction.angle()
+
+func die():
+	queue_free()
+
+func hurt(damage: int):
+	health -= damage
+	if health <= 0:
+		die()

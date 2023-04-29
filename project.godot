@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Safezone",
 "language": "GDScript",
 "path": "res://script/safezone.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Truck",
+"language": "GDScript",
+"path": "res://script/truck.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Player": "",
-"Safezone": ""
+"Safezone": "",
+"Truck": ""
 }
 
 [application]
@@ -110,11 +116,12 @@ shoot={
 
 [layer_names]
 
-2d_physics/layer_1="wall"
+2d_physics/layer_1="bounds"
 2d_physics/layer_2="player"
 2d_physics/layer_3="bullet"
 2d_physics/layer_4="enemy"
 2d_physics/layer_5="safezone"
+2d_physics/layer_6="solid"
 
 [physics]
 

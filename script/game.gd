@@ -1,11 +1,21 @@
 extends Node
 
-func _ready() -> void:
-	OS.set_window_title("ldjam 53")
-	set_background_color(Color(0, 0, 0))
+var background_color: Color = Color("#131d25") setget set_background_color, get_background_color
 
 func set_background_color(color: Color):
 	VisualServer.set_default_clear_color(color)
+
+func get_background_color() -> Color:
+	return background_color
+
+func _ready() -> void:
+	OS.set_window_title("ldjam 53")
+	set_background_color(background_color)
+
+func spawn(scene: PackedScene) -> Node2D:
+	var instance: Node2D = scene.instance()
+	$"/root/World".add_child(instance)
+	return instance
 
 func damp(from: Vector2, to: Vector2, smoothing: float, delta: float) -> Vector2:
 	return lerp(from, to, 1.0 - pow(smoothing, delta))
