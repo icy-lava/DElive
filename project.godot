@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Living",
+"class": "Blade",
+"language": "GDScript",
+"path": "res://script/blade.gd"
+}, {
+"base": "Living",
 "class": "Boid",
 "language": "GDScript",
 "path": "res://script/boid.gd"
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://script/truck.gd"
 } ]
 _global_script_class_icons={
+"Blade": "",
 "Boid": "",
 "Box": "",
 "Bullet": "",

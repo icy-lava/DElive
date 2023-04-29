@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="blade.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview137"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="17.324116"
+     inkscape:cy="84.49926"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid260"
+       spacingx="8"
+       spacingy="8"
+       empspacing="4"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs132">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1244"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path4729"
+       style="fill:#ffffff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       d="M 64 0 L 50.748047 14.544922 L 32 8.5742188 L 27.796875 27.796875 L 8.5742188 32 L 14.544922 50.748047 L 0 64 L 14.544922 77.251953 L 8.5742188 96 L 27.796875 100.20312 L 32 119.42578 L 50.748047 113.45508 L 64 128 L 77.251953 113.45508 L 96 119.42578 L 100.20312 100.20312 L 119.42578 96 L 113.45508 77.251953 L 128 64 L 113.45508 50.748047 L 119.42578 32 L 100.20312 27.796875 L 96 8.5742188 L 77.251953 14.544922 L 64 0 z M 64 32 L 71.453125 36.181641 L 80 36.287109 L 84.365234 43.634766 L 91.712891 48 L 91.818359 56.546875 L 96 64 L 91.818359 71.453125 L 91.712891 80 L 84.365234 84.365234 L 80 91.712891 L 71.453125 91.818359 L 64 96 L 56.546875 91.818359 L 48 91.712891 L 43.634766 84.365234 L 36.287109 80 L 36.181641 71.453125 L 32 64 L 36.181641 56.546875 L 36.287109 48 L 43.634766 43.634766 L 48 36.287109 L 56.546875 36.181641 L 64 32 z " />
+    <circle
+       style="fill:#ffffff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path4846"
+       cx="64"
+       cy="64"
+       r="16" />
+  </g>
+</svg>

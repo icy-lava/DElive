@@ -4,7 +4,7 @@
 [ext_resource path="res://object/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://object/wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/level1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://object/shooty.tscn" type="PackedScene" id=5]
+[ext_resource path="res://object/blade.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -67,8 +67,8 @@ shape = SubResource( 4 )
 
 [node name="Level" parent="." instance=ExtResource( 4 )]
 
-[node name="Shooty" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1216, 256 )
+[node name="Blade" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1536, 704 )
 
 [editable path="Bounds/Wall"]
 [editable path="Bounds/Wall2"]

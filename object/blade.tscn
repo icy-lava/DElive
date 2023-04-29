@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://script/blade.gd" type="Script" id=1]
+[ext_resource path="res://asset/image/blade.svg" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 48.0
+
+[node name="Blade" type="KinematicBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 20
+script = ExtResource( 1 )
+max_health = 1.0
+
+[node name="BladeSprite" type="Sprite" parent="."]
+modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
+texture = ExtResource( 2 )
+
+[node name="BladeShape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 106
+
+[node name="HurtShape" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
