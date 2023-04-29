@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://object/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://object/wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://object/bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://object/safezone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://object/boid.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -58,7 +59,7 @@ position = Vector2( -64, 1920.5 )
 shape = SubResource( 3 )
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1536, 960 )
+position = Vector2( 696, 346 )
 
 [node name="Safezone" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -66,6 +67,80 @@ visible = false
 [node name="SafezoneShape" parent="Safezone" index="0"]
 position = Vector2( 1920.5, 1088 )
 shape = SubResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Boid" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 606, 323 )
+
+[node name="Boid2" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 555, 372 )
+
+[node name="Boid3" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 606, 295 )
+
+[node name="Boid4" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 654, 420 )
+
+[node name="Boid5" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 715, 365 )
+
+[node name="Boid6" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 584, 405 )
+
+[node name="Boid7" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 581, 380 )
+
+[node name="Boid8" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 530, 429 )
+
+[node name="Boid9" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 581, 352 )
+
+[node name="Boid10" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 629, 477 )
+
+[node name="Boid11" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 690, 422 )
+
+[node name="Boid12" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 559, 462 )
+
+[node name="Boid13" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 489, 272 )
+
+[node name="Boid14" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 438, 321 )
+
+[node name="Boid15" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 489, 244 )
+
+[node name="Boid16" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 537, 369 )
+
+[node name="Boid17" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 598, 314 )
+
+[node name="Boid18" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 467, 354 )
+
+[node name="Boid19" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 597, 212 )
+
+[node name="Boid20" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 546, 261 )
+
+[node name="Boid21" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 597, 184 )
+
+[node name="Boid22" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 645, 309 )
+
+[node name="Boid23" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 706, 254 )
+
+[node name="Boid24" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 575, 294 )
 
 [editable path="Bounds/Wall"]
 [editable path="Bounds/Wall2"]

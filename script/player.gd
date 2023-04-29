@@ -10,7 +10,7 @@ export (PackedScene) var bullet_scene: PackedScene
 func _physics_process(delta: float) -> void:
 	# process movement
 	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = Game.damp(velocity, input * 700, 0.00001, delta)
+	velocity = Game.damp(velocity, input * 900, 0.00001, delta)
 	velocity = move_and_slide(velocity)
 	
 	# face the mouse
