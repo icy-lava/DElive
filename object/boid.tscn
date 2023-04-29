@@ -11,6 +11,7 @@ modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 collision_layer = 8
 collision_mask = 32
 script = ExtResource( 1 )
+max_health = 1.0
 
 [node name="BoidSprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )

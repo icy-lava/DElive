@@ -1,13 +1,11 @@
-extends KinematicBody2D
+extends Living
+class_name Boid
 
-var mass: float = 1
 var velocity := Vector2.ZERO
 var direction := Vector2.RIGHT
-var health: int = 1
 
 func _physics_process(delta: float) -> void:
 	var boids := get_tree().get_nodes_in_group('boid')
-	
 	
 	var center := Vector2.ZERO
 	var center_weight: float = 0
@@ -71,11 +69,3 @@ func _physics_process(delta: float) -> void:
 	
 	direction = velocity.normalized()
 	rotation = direction.angle()
-
-func die():
-	queue_free()
-
-func hurt(damage: int):
-	health -= damage
-	if health <= 0:
-		die()

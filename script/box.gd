@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 class_name Box
 
 export var max_time: float = 20

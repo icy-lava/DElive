@@ -10,7 +10,7 @@ export (PackedScene) var bullet_scene: PackedScene
 func _physics_process(delta: float) -> void:
 	# process movement
 	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = Game.damp(velocity, input * 1300, 0.0001, delta)
+	velocity = Game.damp(velocity, input * 1300, 0.001, delta)
 	velocity = move_and_slide(velocity)
 	
 	# face the mouse
@@ -25,4 +25,5 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	var bullet: Bullet = Game.spawn(bullet_scene, global_position + direction * 72)
 	bullet.direction = direction
+	velocity -= direction * 500
 	last_shot_frame = Game.get_frame_id()
