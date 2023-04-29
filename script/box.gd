@@ -1,7 +1,8 @@
 extends Node2D
+class_name Box
 
 export var max_time: float = 20
-var time: float = max_time
+onready var time: float = max_time
 export var spawn_scene: PackedScene
 
 func _ready() -> void:
@@ -14,5 +15,5 @@ func _physics_process(delta: float) -> void:
 		trigger()
 
 func trigger():
-	Game.spawn(spawn_scene)
+	Game.spawn(spawn_scene, global_position)
 	queue_free()

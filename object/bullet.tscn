@@ -11,6 +11,7 @@ radius = 28.0
 
 [node name="Bullet" type="KinematicBody2D"]
 modulate = Color( 0, 0.67451, 0.752941, 1 )
+z_index = -90
 collision_layer = 4
 collision_mask = 32
 script = ExtResource( 1 )
@@ -25,7 +26,7 @@ shape = SubResource( 1 )
 [node name="Hurtbox" type="Area2D" parent="."]
 z_index = -100
 collision_layer = 0
-collision_mask = 40
+collision_mask = 104
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 2 )

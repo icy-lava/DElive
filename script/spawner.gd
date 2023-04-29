@@ -8,7 +8,9 @@ func _ready() -> void:
 	for i in count:
 		var angle := float(i) / count * TAU + PI / 2
 		var distance: float = radius if count > 1 else 0
-		var offset: Vector2 = Vector2(cos(angle), sin(angle)) * distance
-		Game.spawn(spawn_scene, global_position + offset)
+		var direction: Vector2 = Vector2(cos(angle), sin(angle))
+		var offset: Vector2 = direction * distance + Vector2(rand_range(0, 5), 0).rotated(rand_range(0, TAU))
+		var instance := Game.spawn(spawn_scene, global_position + offset)
+		instance.velocity = direction * 50
 	
 	queue_free()

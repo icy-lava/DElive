@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://object/drive_in.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 896, -320, -213.494, -484.045, 213.494, 484.045, 1152, 576, 0, 0, 0, 0, 1792, 1280 )
+"points": PoolVector2Array( 0, 0, 0, 0, 896, -320, -213.494, -484.045, 213.494, 484.045, 1024, 448, 0, 0, 0, 0, 1536, 1152 )
+}
+
+[sub_resource type="Curve2D" id=3]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1793, -640, 305.594, -458.846, -305.594, 458.846, 1601, 384, 0, 0, 0, 0, 769, 1088 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -25,6 +31,20 @@ tracks/0/keys = {
 "method": "start"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("DrivePath2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
 
 [node name="Level" type="Node2D"]
 
@@ -32,6 +52,12 @@ tracks/0/keys = {
 position = Vector2( -896, -640 )
 curve = SubResource( 1 )
 drive_in_time = 1.5
+drive_out_time = 1.5
+
+[node name="DrivePath2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2752, -448 )
+curve = SubResource( 3 )
+drive_in_time = 2.0
 drive_out_time = 1.5
 
 [node name="Sequence" type="AnimationPlayer" parent="."]
