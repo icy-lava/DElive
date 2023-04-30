@@ -6,7 +6,11 @@ onready var Dropper: DropSpawn = find_node("DropSpawn")
 onready var move_clockwise := randf() > 0.5
 
 export var spawn_interval: int = 0
+export(Array, AudioEffectAmplify) var drop_scenes: Array
 var last_spawn_frame: int = Game.get_frame_id()
+
+func _ready() -> void:
+	Dropper.drop_scenes = drop_scenes
 
 func _physics_process(delta: float) -> void:
 	var player := Game.get_nearest_player(global_position)

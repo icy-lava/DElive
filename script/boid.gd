@@ -19,8 +19,9 @@ func _physics_process(delta: float) -> void:
 	var maintain_distance: float = 1500
 	
 	for boid in boids:
-		var delta_position: Vector2 = boid.position - position
+		var delta_position: Vector2 = boid.global_position - global_position
 		var distance = delta_position.length()
+		if distance > max(center_distance, maintain_distance): continue
 		
 		if distance < center_distance:
 			var weight: float = (center_distance - distance) / center_distance

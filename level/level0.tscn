@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://script/level.gd" type="Script" id=1]
-[ext_resource path="res://spawner/boid5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://object/boid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://object/drive_in.tscn" type="PackedScene" id=3]
+[ext_resource path="res://script/spawn_info.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -10,6 +11,13 @@ bake_interval = 2.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 384, 128, -299.598, -216.908, 299.598, 216.908, 1088, 512, 0, 0, 0, 0, 1920, 768 )
 }
+
+[sub_resource type="AudioEffectAmplify" id=3]
+script = ExtResource( 4 )
+boxed = true
+box_time = 3.0
+spawn_count = 5
+spawn_scene = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "main"
@@ -39,11 +47,12 @@ drive_out_time = 2.5
 drop_off_time = 0.8
 
 [node name="DriveFollow" parent="DrivePath" index="0"]
-position = Vector2( 385.624, 128.676 )
-rotation = 0.414158
+position = Vector2( 385.541, 128.641 )
+rotation = 0.41413
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath/DriveFollow" index="0"]
-drop_scenes = [ ExtResource( 2 ) ]
+drop_scenes = [ SubResource( 3 ) ]
 
 [node name="Sequence" type="AnimationPlayer" parent="."]
 autoplay = "main"
