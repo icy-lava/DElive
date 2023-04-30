@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://script/bomb.gd" type="Script" id=1]
+[ext_resource path="res://asset/font/quicksand/Quicksand-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://asset/image/bomb.svg" type="Texture" id=3]
+[ext_resource path="res://object/explosion.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 48.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Bomb" type="RigidBody2D"]
+modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
+z_index = -50
+collision_layer = 64
+collision_mask = 14
+linear_damp = 3.0
+angular_damp = 4.0
+script = ExtResource( 1 )
+explosion_scene = ExtResource( 4 )
+
+[node name="BombSprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="BombShape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="BombText" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "0.0"
+align = 1
+valign = 1

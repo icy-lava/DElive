@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://script/boid.gd"
 }, {
 "base": "RigidBody2D",
+"class": "Bomb",
+"language": "GDScript",
+"path": "res://script/bomb.gd"
+}, {
+"base": "RigidBody2D",
 "class": "Box",
 "language": "GDScript",
 "path": "res://script/box.gd"
@@ -67,6 +72,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Blade": "",
 "Boid": "",
+"Bomb": "",
 "Box": "",
 "Bullet": "",
 "Dieable": "",

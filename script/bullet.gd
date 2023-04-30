@@ -28,6 +28,9 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 		living.hurt(damage)
 		living.velocity += velocity * 2
 		die()
+	if body is Bomb:
+		(body as Bomb).explode()
+		die()
 	if body.is_in_group('box'):
 		var box: RigidBody2D = body
 		var offset: Vector2 = global_position - box.global_position

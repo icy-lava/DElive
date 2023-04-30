@@ -10,13 +10,13 @@ radius = 48.0
 radius = 48.0
 
 [node name="Blade" type="KinematicBody2D" groups=["enemy"]]
+modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 collision_layer = 8
 collision_mask = 20
 script = ExtResource( 1 )
 max_health = 1.0
 
 [node name="BladeSprite" type="Sprite" parent="."]
-modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 texture = ExtResource( 2 )
 
 [node name="BladeShape" type="CollisionShape2D" parent="."]
