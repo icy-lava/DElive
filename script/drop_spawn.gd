@@ -18,6 +18,6 @@ func drop():
 	if instance is RigidBody2D:
 		var body := instance as RigidBody2D
 		body.angular_velocity = rand_range(-20, 20)
-		body.linear_velocity = Vector2(cos(global_rotation), sin(global_rotation)) * rand_range(-1500, -500)
+		body.linear_velocity = Vector2(cos(global_rotation), sin(global_rotation)) * rand_range(-1000, -500)
 	
 	current_drop = (current_drop + 1) % len(drop_scenes)

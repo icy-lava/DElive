@@ -2,11 +2,10 @@ extends Node2D
 class_name ProgressManager
 
 var current_level: int = 0
-var last_phase: int = 0
-signal progress_changed(level, phase)
+signal progress_changed(level)
 
 func emit_progress_changed() -> void:
-	emit_signal("progress_changed", current_level, last_phase)
+	emit_signal("progress_changed", current_level)
 
 func _ready() -> void:
 	emit_progress_changed()
@@ -18,12 +17,10 @@ func _physics_process(delta: float) -> void:
 		var scene := load(name)
 		if scene != null:
 			level = Game.spawn(scene, global_position)
+			print(level)
 		else:
 			print_debug("no more levels!")
 			queue_free()
-	else:
-		last_phase = level.current_phase
-		emit_progress_changed()
 
 func get_level() -> Level:
 	var level: Level = owner.find_node("Level", true, false)
@@ -31,6 +28,5 @@ func get_level() -> Level:
 
 func next_level() -> void:
 	current_level += 1
-	last_phase = 0
 	emit_progress_changed()
 	get_level().queue_free()
