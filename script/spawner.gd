@@ -1,10 +1,14 @@
 extends Node2D
+class_name Spawner
 
 export var count: int = 1
-export var radius: float = 100
+export var radius: float = 25
 export var spawn_scene: PackedScene
 
 func _ready() -> void:
+	call_deferred('spawn')
+
+func spawn() -> void:
 	for i in count:
 		var angle := float(i) / count * TAU + PI / 2
 		var distance: float = radius if count > 1 else 0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://script/level.gd" type="Script" id=1]
-[ext_resource path="res://spawner/boid5.tscn" type="PackedScene" id=2]
 [ext_resource path="res://object/drive_in.tscn" type="PackedScene" id=3]
+[ext_resource path="res://object/boid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/spawn_info.gd" type="Script" id=5]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -11,12 +12,26 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 832, 128, 266.375, -62.0663, -266.375, 62.0663, 256, 320, 0, 0, 0, 0, -320, 384 )
 }
 
+[sub_resource type="AudioEffectAmplify" id=9]
+script = ExtResource( 5 )
+boxed = true
+box_time = 3.0
+spawn_count = 100
+spawn_scene = ExtResource( 4 )
+
 [sub_resource type="Curve2D" id=3]
 resource_local_to_scene = true
 bake_interval = 2.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 832, 128, 330.375, -34.0663, -330.375, 34.0663, 192, 384, 0, 0, 0, 0, -577, 192 )
 }
+
+[sub_resource type="AudioEffectAmplify" id=10]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 100
+spawn_scene = ExtResource( 4 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -144,7 +159,7 @@ rotation = 2.7624
 offset = 1.19142
 
 [node name="Truck" parent="DrivePath/DriveFollow" index="0"]
-drop_scenes = [ ExtResource( 2 ) ]
+drop_scenes = [ SubResource( 9 ) ]
 
 [node name="DrivePath2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3585, 1024 )
@@ -158,7 +173,7 @@ rotation = 2.5735
 offset = 1.50208
 
 [node name="Truck" parent="DrivePath2/DriveFollow" index="0"]
-drop_scenes = [ ExtResource( 2 ) ]
+drop_scenes = [ SubResource( 10 ) ]
 
 [node name="DriveAnimation" parent="DrivePath2" index="1"]
 anims/RESET = SubResource( 4 )

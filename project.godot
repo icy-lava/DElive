@@ -84,10 +84,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://script/shooty.gd"
 }, {
-"base": "Resource",
+"base": "AudioEffectAmplify",
 "class": "SpawnInfo",
 "language": "GDScript",
 "path": "res://script/spawn_info.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://script/spawner.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Truck",
@@ -116,6 +121,7 @@ _global_script_class_icons={
 "Safezone": "",
 "Shooty": "",
 "SpawnInfo": "",
+"Spawner": "",
 "Truck": "",
 "UFO": ""
 }
