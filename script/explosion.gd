@@ -9,6 +9,7 @@ func _physics_process(delta: float) -> void:
 
 func _ready() -> void:
 	call_deferred('apply_damage')
+	Game.play_sound($ExplosionPlayer, 0.1)
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius * radius_mult, Color.white)

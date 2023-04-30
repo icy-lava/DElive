@@ -35,4 +35,10 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	
 	if player != null:
-		gun.shoot()
+		if gun.shoot():
+			Game.play_sound($ShootPlayer, 0.25)
+
+
+func _on_Shooty_on_hit() -> void:
+	pass
+#	Game.play_sound($HitPlayer, 0.1)

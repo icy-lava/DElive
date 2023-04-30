@@ -7,7 +7,7 @@ export (PackedScene) var bullet_scene: PackedScene
 export var knockback: float = 500
 export var bullet_speed: float = 2200
 
-func shoot():
+func shoot() -> bool:
 	var shot_time: int = Game.get_frame_id() - last_shot_frame
 	if shot_time >= fire_interval:
 		var bullet: Bullet = Game.spawn(bullet_scene, global_position)
@@ -17,3 +17,5 @@ func shoot():
 		if 'velocity' in bullet.shooter:
 			bullet.shooter.velocity -= bullet.direction * knockback
 		last_shot_frame = Game.get_frame_id()
+		return true
+	return false

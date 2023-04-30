@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://script/explosion.gd" type="Script" id=1]
+[ext_resource path="res://asset/audio/explode.wav" type="AudioStream" id=2]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -75,3 +76,7 @@ script = ExtResource( 1 )
 autoplay = "explode"
 anims/RESET = SubResource( 2 )
 anims/explode = SubResource( 1 )
+
+[node name="ExplosionPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 12.0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/boid.gd" type="Script" id=1]
 [ext_resource path="res://asset/image/boid.svg" type="Texture" id=2]
+[ext_resource path="res://asset/audio/blip.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 24.0
@@ -28,4 +29,9 @@ shape = SubResource( 1 )
 [node name="HurtShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 2 )
 
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -3.0
+
+[connection signal="dying" from="." to="." method="_on_Boid_dying"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

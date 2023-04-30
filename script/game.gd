@@ -53,3 +53,16 @@ func _input(event: InputEvent) -> void:
 func reset_scene() -> void:
 	if get_tree().reload_current_scene() != OK:
 		assert(false, 'failed to reset current scene')
+
+func death_sound(sound: AudioStreamPlayer, octave_range: float) -> void:
+	sound.get_parent().remove_child(sound)
+	get_tree().root.add_child(sound)
+	sound.stop()
+	sound.connect("finished", sound, "queue_free")
+	sound.pitch_scale = pow(2, rand_range(-octave_range, octave_range))
+	sound.play()
+
+func play_sound(sound: AudioStreamPlayer, octave_range: float) -> void:
+	var clone := sound.duplicate()
+	get_tree().root.add_child(clone)
+	Game.death_sound(clone, octave_range)

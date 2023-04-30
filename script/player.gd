@@ -19,4 +19,8 @@ func _physics_process(delta: float) -> void:
 	
 	# shooting
 	if Input.is_action_pressed("shoot"):
-		gun.shoot()
+		if gun.shoot():
+			var sound: AudioStreamPlayer = $ShootPlayer
+			sound.stop()
+			sound.pitch_scale = pow(2, rand_range(-0.07, 0.07))
+			sound.play()

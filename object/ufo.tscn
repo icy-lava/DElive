@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://script/ufo.gd" type="Script" id=1]
 [ext_resource path="res://asset/image/ufo.svg" type="Texture" id=2]
 [ext_resource path="res://object/drop_spawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://object/enemy_health_bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://asset/audio/ufo.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 96.0
@@ -30,3 +31,11 @@ margin_left = -144.0
 margin_top = 152.0
 margin_right = 144.0
 margin_bottom = 168.0
+
+[node name="SpookyPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 12.0
+autoplay = true
+max_distance = 2500.0
+attenuation = 1.6245
+bus = "Sound"

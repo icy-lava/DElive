@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blip.wav-d0525b1357c2c1e33b3c6ead3306261e.sample"
+
+[deps]
+
+source_file="res://asset/audio/blip.wav"
+dest_files=[ "res://.import/blip.wav-d0525b1357c2c1e33b3c6ead3306261e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

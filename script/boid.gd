@@ -65,8 +65,11 @@ func _physics_process(delta: float) -> void:
 	direction = velocity.normalized()
 	rotation = direction.angle()
 
-
 func _on_Hurtbox_body_entered(body: Node) -> void:
 	if body is Player:
 		body.hurt(1)
 		die()
+
+
+func _on_Boid_dying() -> void:
+	Game.play_sound($DeathPlayer, 0.5)
