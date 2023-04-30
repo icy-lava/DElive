@@ -3,6 +3,7 @@ class_name UFO
 
 var velocity := Vector2.ZERO
 onready var Dropper: DropSpawn = find_node("DropSpawn")
+onready var move_clockwise := randf() > 0.5
 
 export var spawn_interval: int = 0
 var last_spawn_frame: int = Game.get_frame_id()
@@ -14,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	if player != null:
 		var delta_pos := player.global_position - global_position
 		var want_direction := delta_pos.rotated(-PI / 2).normalized()
+		if not move_clockwise:
+			want_direction *= -1
 		var amplitude: float = 300
 		var margin: float = 100
 		var radius: float = 400
@@ -28,9 +31,9 @@ func _physics_process(delta: float) -> void:
 			offset_direction *= -1
 		offset_direction = lerp(offset_direction, want_direction, 0.5).normalized()
 		want_direction = lerp(want_direction, offset_direction, importance).normalized()
-		want_velocity = want_direction * 1000
+		want_velocity = want_direction * 800
 	
-	velocity = Game.damp(velocity, want_velocity, 0.2, delta)
+	velocity = Game.damp(velocity, want_velocity, 0.05, delta)
 	velocity = move_and_slide(velocity)
 	
 	if spawn_interval > 0:
@@ -39,7 +42,8 @@ func _physics_process(delta: float) -> void:
 			last_spawn_frame = Game.get_frame_id()
 			drop()
 	
-	$UFOSprite.rotation -= delta * 3
+	$UFOSprite.rotation -= 3 * (delta if move_clockwise else -delta)
 
 func drop() -> void:
-	Dropper.drop()
+	if Game.get_nearest_player(global_position) != null:
+		Dropper.drop()

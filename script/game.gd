@@ -10,6 +10,7 @@ func get_background_color() -> Color:
 
 func _ready() -> void:
 #	OS.set_window_title("ldjam 53")
+	randomize()
 	set_background_color(background_color)
 
 func spawn(scene: PackedScene, global_position: Vector2) -> Node2D:

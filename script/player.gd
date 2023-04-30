@@ -3,6 +3,7 @@ class_name Player
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.RIGHT
+onready var gun := $Rotating/Gun
 
 func _physics_process(delta: float) -> void:
 	# process movement
@@ -14,8 +15,8 @@ func _physics_process(delta: float) -> void:
 	direction = (get_global_mouse_position() - position).normalized()
 	$Rotating.rotation = direction.angle()
 	
-	health = min(health + delta * 0.1, max_health)
+	health = min(health + delta * 0.2, max_health)
 	
 	# shooting
 	if Input.is_action_pressed("shoot"):
-		$Rotating/Gun.shoot()
+		gun.shoot()

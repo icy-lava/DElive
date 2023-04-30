@@ -2,11 +2,12 @@ extends Living
 class_name Shooty
 
 var velocity := Vector2.ZERO
+onready var gun := $Rotating/Gun
 
 func _physics_process(delta: float) -> void:
 	var player := Game.get_nearest_player(global_position)
 	var want_velocity := Vector2.ZERO
-	var direction := Vector2(cos(rotation), sin(rotation))
+	var direction := Vector2(cos($Rotating.rotation), sin($Rotating.rotation))
 	var want_direction := direction
 	if player != null:
 		var delta_pos := player.global_position - global_position
@@ -14,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		want_velocity = direction * 800
 	
 	direction = Game.damp(direction, want_direction, 0.01, delta)
-	rotation = direction.angle()
+	$Rotating.rotation = direction.angle()
 	
 	velocity = Game.damp(velocity, want_velocity, 0.01, delta)
 	
@@ -34,4 +35,4 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	
 	if player != null:
-		$Gun.shoot()
+		gun.shoot()

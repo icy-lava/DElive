@@ -26,8 +26,12 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 	if body is Living:
 		var living: Living = body
 		living.hurt(damage)
-		living.velocity += velocity * 1
-		die()
+		if living is Player:
+			living.velocity += velocity * 0.5
+		else:
+			living.velocity += velocity * 1
+		if not living is Boid:
+			die()
 	if body is Bomb:
 		(body as Bomb).explode()
 		die()
