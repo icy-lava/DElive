@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="ufo.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview137"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="2.46"
+     inkscape:cx="67.886179"
+     inkscape:cy="116.26016"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid260"
+       spacingx="8"
+       spacingy="8"
+       empspacing="4"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs132">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1244"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#ffffff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path4987"
+       cx="-87.425629"
+       cy="23.425627"
+       r="64"
+       transform="rotate(-120)" />
+    <circle
+       style="fill:#919191;fill-opacity:1;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path4989"
+       cx="64"
+       cy="20"
+       r="16" />
+    <circle
+       style="fill:#919191;fill-opacity:1;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="circle5147"
+       cx="64"
+       cy="64"
+       r="24" />
+    <circle
+       style="fill:#919191;fill-opacity:1;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="circle5149"
+       cx="23.425627"
+       cy="-131.42563"
+       r="16"
+       transform="rotate(120)" />
+    <circle
+       style="fill:#919191;fill-opacity:1;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="circle5151"
+       cx="-87.425629"
+       cy="-20.574373"
+       r="16"
+       transform="rotate(-120)" />
+  </g>
+</svg>

@@ -3,7 +3,7 @@ class_name Bomb
 
 export var max_time: float = 5
 onready var time: float = max_time
-export var radius: float = 400
+export var radius: float = 600
 export var explosion_scene: PackedScene
 
 func _physics_process(delta: float) -> void:

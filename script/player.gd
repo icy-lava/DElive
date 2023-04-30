@@ -12,8 +12,10 @@ func _physics_process(delta: float) -> void:
 	
 	# face the mouse
 	direction = (get_global_mouse_position() - position).normalized()
-	rotation = direction.angle()
+	$Rotating.rotation = direction.angle()
+	
+	health = min(health + delta * 0.1, max_health)
 	
 	# shooting
 	if Input.is_action_pressed("shoot"):
-		$Gun.shoot()
+		$Rotating/Gun.shoot()

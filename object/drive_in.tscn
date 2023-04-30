@@ -100,7 +100,6 @@ offset = 1.77011
 loop = false
 
 [node name="Truck" parent="DriveFollow" instance=ExtResource( 2 )]
-modulate = Color( 0.866667, 0.631373, 0.505882, 1 )
 rotation = 3.14159
 
 [node name="DriveAnimation" type="AnimationPlayer" parent="."]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://script/ufo.gd" type="Script" id=1]
+[ext_resource path="res://asset/image/ufo.svg" type="Texture" id=2]
+[ext_resource path="res://object/drop_spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://object/enemy_health_bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://spawner/boid5.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 96.0
+
+[node name="UFO" type="KinematicBody2D" groups=["enemy", "ufo"]]
+modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
+z_index = 200
+collision_layer = 8
+collision_mask = 32
+script = ExtResource( 1 )
+max_health = 8.0
+spawn_interval = 300
+
+[node name="UFOSprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="UFOShape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DropSpawn" parent="." instance=ExtResource( 3 )]
+drop_scenes = [ ExtResource( 5 ) ]
+
+[node name="HealthBar" parent="." instance=ExtResource( 4 )]
+margin_left = -144.0
+margin_top = 152.0
+margin_right = 144.0
+margin_bottom = 168.0

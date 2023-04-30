@@ -40,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://script/dieable.gd"
 }, {
 "base": "Node2D",
+"class": "DropSpawn",
+"language": "GDScript",
+"path": "res://script/drop_spawn.gd"
+}, {
+"base": "Node2D",
 "class": "Gun",
 "language": "GDScript",
 "path": "res://script/gun.gd"
+}, {
+"base": "ProgressBar",
+"class": "HealthBar",
+"language": "GDScript",
+"path": "res://script/health_bar.gd"
 }, {
 "base": "Dieable",
 "class": "Living",
@@ -68,6 +78,11 @@ _global_script_classes=[ {
 "class": "Truck",
 "language": "GDScript",
 "path": "res://script/truck.gd"
+}, {
+"base": "Living",
+"class": "UFO",
+"language": "GDScript",
+"path": "res://script/ufo.gd"
 } ]
 _global_script_class_icons={
 "Blade": "",
@@ -76,12 +91,15 @@ _global_script_class_icons={
 "Box": "",
 "Bullet": "",
 "Dieable": "",
+"DropSpawn": "",
 "Gun": "",
+"HealthBar": "",
 "Living": "",
 "Player": "",
 "Safezone": "",
 "Shooty": "",
-"Truck": ""
+"Truck": "",
+"UFO": ""
 }
 
 [application]

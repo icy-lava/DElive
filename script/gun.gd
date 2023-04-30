@@ -11,9 +11,9 @@ func shoot():
 	var shot_time: int = Game.get_frame_id() - last_shot_frame
 	if shot_time >= fire_interval:
 		var bullet: Bullet = Game.spawn(bullet_scene, global_position)
-		bullet.shooter = get_parent()
+		bullet.shooter = owner
 		bullet.speed = bullet_speed
 		bullet.direction = Vector2(cos(global_rotation), sin(global_rotation))
-		if 'velocity' in get_parent():
-			get_parent().velocity -= bullet.direction * knockback
+		if 'velocity' in bullet.shooter:
+			bullet.shooter.velocity -= bullet.direction * knockback
 		last_shot_frame = Game.get_frame_id()
