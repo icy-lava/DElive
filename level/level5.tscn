@@ -1,0 +1,210 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://script/level.gd" type="Script" id=1]
+[ext_resource path="res://object/boid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/spawn_info.gd" type="Script" id=5]
+[ext_resource path="res://object/fly_through.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=19]
+resource_local_to_scene = true
+bake_interval = 2.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -448, 896, -1425.82, -100.351, 1425.82, 100.351, 1024, 1920, -424.264, 67.8823, 424.264, -67.8823, 3265, 1280, 0, 0, 0, 0, 4289, 1280 )
+}
+
+[sub_resource type="AudioEffectAmplify" id=29]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=30]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=31]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=32]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=33]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 3
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="Curve2D" id=25]
+resource_local_to_scene = true
+bake_interval = 2.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -448, 896, -919.79, -191.981, 919.79, 191.981, 832.993, 1644.04, -744.988, 53.6265, 744.988, -53.6265, 3200.99, 1278.61, 0, 0, 0, 0, 4480.99, 1598.62 )
+}
+
+[sub_resource type="AudioEffectAmplify" id=20]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=21]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=22]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=23]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=24]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 3
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FlyFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "end"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "fly_through"
+length = 1.00007
+step = 0.0666667
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("FlyFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.001, -0.666667, -0.991392, 0.666667, 0.991392, 0.999, -0.333333, -0.00760823, 0.333333, 0.00760823 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "main"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("FlyPath")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("FlyPath2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="FlyPath" parent="." instance=ExtResource( 6 )]
+curve = SubResource( 19 )
+fly_through_time = 10.0
+
+[node name="FlyFollow" parent="FlyPath" index="0"]
+position = Vector2( -447.616, 901.235 )
+offset = 5.27209
+
+[node name="UFO" parent="FlyPath/FlyFollow" index="0"]
+spawn_interval = 30
+drop_scenes = [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ]
+
+[node name="FlyPath2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3777, 1662.6 )
+rotation = 3.14159
+curve = SubResource( 25 )
+fly_through_time = 8.0
+
+[node name="FlyFollow" parent="FlyPath2" index="0"]
+position = Vector2( -445.05, 900.37 )
+offset = 5.26285
+
+[node name="UFO" parent="FlyPath2/FlyFollow" index="0"]
+spawn_interval = 30
+drop_scenes = [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ]
+
+[node name="FlyAnimation" parent="FlyPath2" index="1"]
+anims/RESET = SubResource( 26 )
+anims/end = SubResource( 27 )
+anims/fly_through = SubResource( 28 )
+
+[node name="Sequence" type="AnimationPlayer" parent="."]
+autoplay = "main"
+anims/main = SubResource( 2 )
+
+[editable path="FlyPath"]
+[editable path="FlyPath2"]

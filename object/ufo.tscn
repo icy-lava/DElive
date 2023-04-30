@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/ufo.gd" type="Script" id=1]
 [ext_resource path="res://asset/image/ufo.svg" type="Texture" id=2]
 [ext_resource path="res://object/drop_spawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://object/enemy_health_bar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://spawner/boid5.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 96.0
@@ -25,7 +24,6 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="DropSpawn" parent="." instance=ExtResource( 3 )]
-drop_scenes = [ ExtResource( 5 ) ]
 
 [node name="HealthBar" parent="." instance=ExtResource( 4 )]
 margin_left = -144.0

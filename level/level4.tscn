@@ -588,9 +588,9 @@ drive_in_time = 2.8
 drive_out_time = 2.5
 
 [node name="DriveFollow" parent="DrivePath" index="0"]
-position = Vector2( 321.534, 256.324 )
-rotation = 0.197714
-offset = 1.60536
+position = Vector2( 321.624, 256.343 )
+rotation = 0.197699
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 4 ) ]
@@ -603,9 +603,9 @@ drive_out_time = 2.5
 drop_off_time = 0.5
 
 [node name="DriveFollow" parent="DrivePath2" index="0"]
-position = Vector2( 321.595, 256.363 )
-rotation = 0.188949
-offset = 1.6575
+position = Vector2( 321.628, 256.371 )
+rotation = 0.188931
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath2/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 6 ) ]
@@ -625,9 +625,9 @@ drive_out_time = 2.5
 drop_off_time = 0.6
 
 [node name="DriveFollow" parent="DrivePath3" index="0"]
-position = Vector2( 321.565, 255.956 )
-rotation = -0.0238468
-offset = 1.60306
+position = Vector2( 321.66, 255.953 )
+rotation = -0.0238401
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath3/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 13 ) ]
@@ -648,9 +648,9 @@ drive_out_time = 2.5
 drop_off_time = 0.3
 
 [node name="DriveFollow" parent="DrivePath4" index="0"]
-position = Vector2( 321.573, 256.186 )
-rotation = 0.111679
-offset = 1.61126
+position = Vector2( 321.659, 256.196 )
+rotation = 0.111671
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath4/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 20 ) ]
@@ -671,9 +671,9 @@ drive_out_time = 2.5
 drop_off_time = 0.6
 
 [node name="DriveFollow" parent="DrivePath5" index="0"]
-position = Vector2( 321.546, 256.65 )
-rotation = 0.345149
-offset = 1.69302
+position = Vector2( 321.541, 256.648 )
+rotation = 0.345153
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath5/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 27 ) ]
@@ -694,9 +694,9 @@ drive_out_time = 2.5
 drop_off_time = 0.5
 
 [node name="DriveFollow" parent="DrivePath6" index="0"]
-position = Vector2( 321.55, 255.783 )
-rotation = -0.0655864
-offset = 1.5961
+position = Vector2( 321.653, 255.769 )
+rotation = -0.0654816
+offset = 1.68769
 
 [node name="Truck" parent="DrivePath6/DriveFollow" index="0"]
 drop_scenes = [ SubResource( 34 ) ]

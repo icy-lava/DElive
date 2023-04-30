@@ -292,7 +292,6 @@ anims/drop_off = SubResource( 8 )
 
 [node name="DrivePath3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -64, -653.334 )
-scale = Vector2( 1, 1.11883 )
 curve = SubResource( 11 )
 drive_in_time = 5.0
 drive_out_time = 2.0

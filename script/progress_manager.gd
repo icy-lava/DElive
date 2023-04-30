@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		var scene := load(name)
 		if scene != null:
 			level = Game.spawn(scene, global_position)
-			print(level)
 		else:
 			print_debug("no more levels!")
 			queue_free()
