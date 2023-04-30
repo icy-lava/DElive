@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://script/health_bar.gd"
 }, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://script/level.gd"
+}, {
 "base": "Dieable",
 "class": "Living",
 "language": "GDScript",
@@ -63,6 +68,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://script/player.gd"
+}, {
+"base": "Node2D",
+"class": "ProgressManager",
+"language": "GDScript",
+"path": "res://script/progress_manager.gd"
 }, {
 "base": "Area2D",
 "class": "Safezone",
@@ -94,8 +104,10 @@ _global_script_class_icons={
 "DropSpawn": "",
 "Gun": "",
 "HealthBar": "",
+"Level": "",
 "Living": "",
 "Player": "",
+"ProgressManager": "",
 "Safezone": "",
 "Shooty": "",
 "Truck": "",
