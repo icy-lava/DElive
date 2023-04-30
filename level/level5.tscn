@@ -176,8 +176,7 @@ curve = SubResource( 19 )
 fly_through_time = 10.0
 
 [node name="FlyFollow" parent="FlyPath" index="0"]
-position = Vector2( -447.616, 901.235 )
-offset = 5.27209
+position = Vector2( 871.787, 1905.62 )
 
 [node name="UFO" parent="FlyPath/FlyFollow" index="0"]
 spawn_interval = 30
@@ -190,8 +189,8 @@ curve = SubResource( 25 )
 fly_through_time = 8.0
 
 [node name="FlyFollow" parent="FlyPath2" index="0"]
-position = Vector2( -445.05, 900.37 )
-offset = 5.26285
+position = Vector2( -447.024, 897.469 )
+offset = 1.76937
 
 [node name="UFO" parent="FlyPath2/FlyFollow" index="0"]
 spawn_interval = 30

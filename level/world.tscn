@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://object/safezone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://object/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://object/progress_manager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://script/progress_text.gd" type="Script" id=5]
 [ext_resource path="res://asset/font/quicksand/Quicksand-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://asset/font/quicksand/Quicksand-SemiBold.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -29,6 +30,122 @@ use_mipmaps = true
 use_filter = true
 extra_spacing_char = 50
 font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 700
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 160
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ProgressDepth:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("GameOverDepth:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, -0.0700002, 0.4, 0.112 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("GameOverDepth:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GameOverDepth/RestartText:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "game_over"
+length = 1.5001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ProgressDepth:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.0326511, -5.95896, 0.6, 109.502, 1100, -0.4, -36.4747, 0.0637355, 5.81184 ),
+"times": PoolRealArray( 0, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("GameOverDepth:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, -0.0700002, 0.4, 0.112, 1, -0.2, -0.267779, 0.25, 0.334724 ),
+"times": PoolRealArray( 0.6, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Level:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GameOverDepth:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 1.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("GameOverDepth/RestartText:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 1.5 )
+}
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends AnimationPlayer
+
+func _on_ProgressManager_game_over() -> void:
+	play(\"game_over\")
+"
 
 [node name="World" type="Node2D"]
 
@@ -88,6 +205,38 @@ align = 1
 valign = 1
 script = ExtResource( 5 )
 
+[node name="GameOverDepth" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+z_index = -1000
+
+[node name="GameOverText" type="Label" parent="GameOverDepth"]
+margin_right = 2688.0
+margin_bottom = 2176.0
+custom_colors/font_color = Color( 0.105882, 0.141176, 0.180392, 1 )
+custom_constants/line_spacing = -200
+custom_fonts/font = SubResource( 6 )
+text = "GAME
+OVER"
+align = 1
+valign = 1
+
+[node name="RestartText" type="Label" parent="GameOverDepth"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 1600.0
+margin_right = 2688.0
+margin_bottom = 2176.0
+custom_colors/font_color = Color( 0.105882, 0.141176, 0.180392, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Press R to restart"
+align = 1
+valign = 1
+
+[node name="GameOverAnimation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
+anims/game_over = SubResource( 8 )
+script = SubResource( 9 )
+
+[connection signal="game_over" from="ProgressManager" to="GameOverAnimation" method="_on_ProgressManager_game_over"]
 [connection signal="progress_changed" from="ProgressManager" to="ProgressDepth/ProgressText" method="_on_ProgressManager_progress_changed"]
 
 [editable path="Bounds/Wall"]

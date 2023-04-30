@@ -38,6 +38,10 @@ func get_framerate() -> int:
 	return Engine.iterations_per_second
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("hard_reset"):
+		reset_scene()
+		return
+	
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 		return

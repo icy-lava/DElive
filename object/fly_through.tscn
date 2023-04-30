@@ -58,12 +58,12 @@ tracks/0/keys = {
 }
 
 [node name="FlyPath" type="Path2D"]
+pause_mode = 1
 curve = SubResource( 7 )
 script = ExtResource( 1 )
 
 [node name="FlyFollow" type="PathFollow2D" parent="."]
-position = Vector2( 2046.27, 1023.93 )
-offset = 1767.61
+position = Vector2( 1024, -192 )
 rotate = false
 loop = false
 lookahead = 100.0

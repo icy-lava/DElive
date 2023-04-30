@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://script/level.gd" type="Script" id=1]
+[ext_resource path="res://object/shooty.tscn" type="PackedScene" id=2]
+[ext_resource path="res://object/boid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/spawn_info.gd" type="Script" id=5]
+[ext_resource path="res://object/fly_through.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=19]
+resource_local_to_scene = true
+bake_interval = 2.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 704, 2304, -1012.44, 170.482, 1012.44, -170.482, 1664, 64, -60.7774, -1058.21, 60.7774, 1058.21, 3457, 1344, 0, 0, 0, 0, 1600, 2368 )
+}
+
+[sub_resource type="AudioEffectAmplify" id=20]
+script = ExtResource( 5 )
+boxed = true
+box_time = 1.0
+spawn_count = 3
+spawn_scene = ExtResource( 4 )
+
+[sub_resource type="AudioEffectAmplify" id=21]
+script = ExtResource( 5 )
+boxed = false
+box_time = 5.0
+spawn_count = 1
+spawn_scene = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "main"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("FlyPath")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="FlyPath" parent="." instance=ExtResource( 6 )]
+curve = SubResource( 19 )
+fly_through_time = 10.0
+
+[node name="FlyFollow" parent="FlyPath" index="0"]
+position = Vector2( 703.893, 2298.75 )
+offset = 5.27209
+
+[node name="UFO" parent="FlyPath/FlyFollow" index="0"]
+spawn_interval = 45
+drop_scenes = [ SubResource( 20 ), SubResource( 21 ) ]
+
+[node name="Sequence" type="AnimationPlayer" parent="."]
+autoplay = "main"
+anims/main = SubResource( 2 )
+
+[editable path="FlyPath"]

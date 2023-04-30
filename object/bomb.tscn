@@ -14,7 +14,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[node name="Bomb" type="RigidBody2D"]
+[node name="Bomb" type="RigidBody2D" groups=["bomb"]]
 modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 z_index = -50
 collision_layer = 64
