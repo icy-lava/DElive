@@ -1,7 +1,7 @@
 extends Node2D
 class_name ProgressManager
 
-var current_level: int = 0
+var current_level: int = 9
 var current_progress: int = current_level
 var difficulty: int = 1
 var player_died := false

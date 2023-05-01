@@ -24,3 +24,10 @@ func _physics_process(delta: float) -> void:
 			sound.stop()
 			sound.pitch_scale = pow(2, rand_range(-0.07, 0.07))
 			sound.play()
+
+
+func _on_Player_on_hit() -> void:
+	if health <= 0:
+		Game.play_sound($DeathPlayer, 0)
+	else:
+		Game.play_sound($HurtPlayer, 0.25)

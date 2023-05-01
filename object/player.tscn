@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://script/player.gd" type="Script" id=1]
 [ext_resource path="res://object/bullet.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://object/gun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://object/health_bar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://asset/audio/shoot.wav" type="AudioStream" id=6]
+[ext_resource path="res://asset/audio/hurt.wav" type="AudioStream" id=7]
+[ext_resource path="res://asset/audio/death.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 52.0
@@ -35,4 +37,15 @@ margin_bottom = 104.0
 
 [node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -3.0
 bus = "Sound"
+
+[node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -8.0
+bus = "Sound"
+
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="on_hit" from="." to="." method="_on_Player_on_hit"]
