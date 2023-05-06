@@ -21,20 +21,14 @@ func _physics_process(delta: float) -> void:
 			emit_signal("game_over")
 	
 	if get_level() == null:
-		if not try_load(current_level):
-			current_level = 0
+		var level_count := len(Game.levels)
+		while current_level >= level_count:
+			current_level -= level_count
 			difficulty += 1
-			if not try_load(current_level):
-				assert(false, "what")
-
-func try_load(level: int) -> bool:
-	if get_level() == null:
-		var name := "res://level/level%s.tscn" % level
-		var scene := load(name)
+		
+		var scene := Game.levels[current_level] as PackedScene
 		if scene != null:
 			Game.spawn(scene, global_position)
-			return true
-	return false
 
 func get_level() -> Level:
 	var level: Level = owner.find_node("Level", true, false)

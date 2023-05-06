@@ -1,6 +1,7 @@
 extends Node
 
 var background_color: Color = Color("#131d25") setget set_background_color, get_background_color
+var levels: Array = []
 
 func set_background_color(color: Color) -> void:
 	VisualServer.set_default_clear_color(color)
@@ -12,6 +13,14 @@ func _ready() -> void:
 #	OS.set_window_title("ldjam 53")
 	randomize()
 	set_background_color(background_color)
+	
+	var level: int = 0
+	while true:
+		var name := "res://level/level%s.tscn" % level
+		var scene := load(name)
+		if scene == null: break
+		levels.append(scene)
+		level += 1
 
 func spawn(scene: PackedScene, global_position: Vector2) -> Node2D:
 	var instance: Node2D = scene.instance()
