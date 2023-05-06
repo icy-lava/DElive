@@ -11,13 +11,13 @@ radius = 24.0
 radius = 16.0
 
 [node name="Boid" type="KinematicBody2D" groups=["boid", "enemy"]]
-modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 collision_layer = 8
 collision_mask = 32
 script = ExtResource( 1 )
 max_health = 1.0
 
 [node name="BoidSprite" type="Sprite" parent="."]
+modulate = Color( 0.847059, 0.101961, 0.180392, 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
