@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = move_and_slide(velocity)
 	velocity = Game.damp(velocity, Vector2.ZERO, 0.9, delta)
+	velocity = velocity.clamped(2000)
 	
 	direction = velocity.normalized()
 	rotation = direction.angle()
