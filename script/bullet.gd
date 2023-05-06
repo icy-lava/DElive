@@ -13,7 +13,7 @@ var damage: int = 1
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
-	speed = Game.damp(Vector2(speed, 0), Vector2.ZERO, 0.2, delta).x
+	speed = Game.damp(Vector2(speed, 0), Vector2.ZERO, 0.25, delta).x
 	life -= delta
 	if not safe or life <= 0:
 		die()
