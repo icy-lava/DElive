@@ -70,6 +70,5 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 		body.hurt(1)
 		die()
 
-
-func _on_Boid_dying() -> void:
+func _on_Boid_on_hit() -> void:
 	Game.play_sound($DeathPlayer, 0.5)

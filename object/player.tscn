@@ -37,15 +37,16 @@ margin_bottom = 104.0
 
 [node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -3.0
+volume_db = -5.0
 bus = "Sound"
 
 [node name="HurtPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -8.0
+volume_db = -3.0
 bus = "Sound"
 
 [node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+bus = "Sound"
 
 [connection signal="on_hit" from="." to="." method="_on_Player_on_hit"]
