@@ -16,6 +16,7 @@ radius = 52.0
 collision_layer = 2
 collision_mask = 33
 script = ExtResource( 1 )
+max_health = 8.0
 
 [node name="Rotating" type="Node2D" parent="."]
 
@@ -49,4 +50,7 @@ bus = "Sound"
 stream = ExtResource( 8 )
 bus = "Sound"
 
+[connection signal="boost_off" from="." to="." method="_on_Player_boost_off"]
+[connection signal="boost_on" from="." to="." method="_on_Player_boost_on"]
+[connection signal="kill" from="." to="." method="_on_Player_kill"]
 [connection signal="on_hit" from="." to="." method="_on_Player_on_hit"]

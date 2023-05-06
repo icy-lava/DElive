@@ -25,7 +25,13 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 		return
 	if body is Living:
 		var living: Living = body
-		living.hurt(damage)
+		if is_instance_valid(shooter):
+			if living.hurt(damage):
+				if shooter.has_signal('kill'):
+					shooter.emit_signal('kill', living)
+			else:
+				if shooter.has_signal('damage'):
+					shooter.emit_signal('damage', living)
 		if living is Player:
 			living.velocity += velocity * 0.5
 		else:
