@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void:
 		using_controller = false
 
 func addBoidChain(count: int) -> void:
-	boid_chain += max(count, 0)
+	boid_chain = max(boid_chain + count, 0)
 	if health == max_health:
 		boid_chain = 0
 	while boid_chain >= boid_chain_max:
@@ -73,7 +73,7 @@ func addBoidChain(count: int) -> void:
 		health = min(health + 1, max_health)
 
 func addShootyChain(count: int) -> void:
-	shooty_chain += max(count, 0)
+	shooty_chain = max(shooty_chain + count, 0)
 	while shooty_chain >= shooty_chain_max:
 		shooty_chain -= shooty_chain_max
 		boost_frames += boost_frames_increment
