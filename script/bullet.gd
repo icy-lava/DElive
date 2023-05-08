@@ -33,9 +33,11 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 				if shooter.has_signal('damage'):
 					shooter.emit_signal('damage', living)
 		if living is Player:
-			living.velocity += velocity * 0.5
+			living.velocity += velocity * 0.3
+		elif living is UFO:
+			living.velocity += velocity * 0.1
 		else:
-			living.velocity += velocity * 1
+			living.velocity += velocity * 0.5
 		if not living is Boid:
 			Game.play_sound($HitPlayer, 0.25)
 			die()

@@ -93,9 +93,7 @@ func _on_Player_kill(other: Living) -> void:
 		addShootyChain(1)
 
 func _on_Player_boost_on() -> void:
-	print('boost ON')
 	gun.fire_interval = gun_boost_interval
 
 func _on_Player_boost_off() -> void:
-	print('boost off')
 	gun.fire_interval = gun_initial_interval
