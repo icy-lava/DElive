@@ -14,6 +14,10 @@ var shooty_chain: int = 0
 export var boost_frames_increment: int = 300
 var boost_frames: int = 0
 var boost_active: bool = false
+
+export var multishot_interval: int = 600
+var multishot_frames: int = 0
+
 onready var gun_initial_interval: int = gun.fire_interval
 onready var gun_boost_interval: int = gun_initial_interval / 2
 
@@ -58,6 +62,11 @@ func _physics_process(delta: float) -> void:
 	boost_active = boost_actual
 	
 	boost_frames = max(boost_frames - 1, 0)
+	
+	multishot_frames = max(multishot_frames - 1, 0)
+	if multishot_frames == 0 and gun.bullet_count > 1:
+		multishot_frames = multishot_interval
+		gun.bullet_count -= 1
 
 func _input(event: InputEvent) -> void:
 	var motion := event as InputEventMouseMotion
@@ -91,6 +100,9 @@ func _on_Player_kill(other: Living) -> void:
 		addBoidChain(1)
 	elif other.name.match("*Shooty*"):
 		addShootyChain(1)
+	elif other.name.match("*UFO*"):
+		multishot_frames = multishot_interval
+		gun.bullet_count += 1
 
 func _on_Player_boost_on() -> void:
 	gun.fire_interval = gun_boost_interval

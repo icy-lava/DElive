@@ -1,8 +1,10 @@
 extends Node2D
+class_name Explosion
 
 export var radius: float = 500
 export var radius_mult: float = 1
 export var damage: float = 3
+var killer: Living = null
 
 func _physics_process(delta: float) -> void:
 	update()
@@ -18,7 +20,12 @@ func try_hurt(node: Node2D) -> bool:
 	if node is Living:
 		var living := node as Living
 		if living.global_position.distance_to(global_position) < radius:
-			living.hurt(damage)
+			if living.hurt(damage):
+				if is_instance_valid(killer) and killer.has_signal('kill'):
+					killer.emit_signal('kill', living)
+			else:
+				if is_instance_valid(killer) and killer.has_signal('damage'):
+					killer.emit_signal('damage', living)
 			return true
 	return false
 

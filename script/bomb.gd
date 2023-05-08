@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	time -= delta
 	$BombText.text = '%0.1f' % time
 	if time <= 0:
-		explode()
+		explode(null)
 	update()
 
 func _draw() -> void:
@@ -19,6 +19,8 @@ func _draw() -> void:
 	color.a = life * 0.15
 	draw_circle(Vector2.ZERO, radius, color)
 
-func explode() -> void:
-	Game.spawn(explosion_scene, global_position).radius = radius
+func explode(killer: Living) -> void:
+	var explosion := Game.spawn(explosion_scene, global_position)
+	explosion.radius = radius
+	if is_instance_valid(killer): explosion.killer = killer
 	queue_free()

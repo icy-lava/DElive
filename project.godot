@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://script/drop_spawn.gd"
 }, {
 "base": "Node2D",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://script/explosion.gd"
+}, {
+"base": "Node2D",
 "class": "Gun",
 "language": "GDScript",
 "path": "res://script/gun.gd"
@@ -112,6 +117,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Dieable": "",
 "DropSpawn": "",
+"Explosion": "",
 "Gun": "",
 "HealthBar": "",
 "Level": "",

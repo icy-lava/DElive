@@ -41,8 +41,9 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 		if not living is Boid:
 			Game.play_sound($HitPlayer, 0.25)
 			die()
-	if body is Bomb:
-		(body as Bomb).explode()
+	var bomb := body as Bomb
+	if bomb:
+		bomb.explode(shooter)
 		Game.play_sound($HitPlayer, 0.25)
 		die()
 	if body.is_in_group('box'):
