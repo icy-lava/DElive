@@ -13,10 +13,7 @@ func _physics_process(delta: float) -> void:
 		trigger()
 
 func trigger():
-	if spawn_count > 1:
-		var spawner: Spawner = Game.spawn(preload("res://object/spawner.tscn"), global_position)
-		spawner.spawn_scene = spawn_scene
-		spawner.count = spawn_count
-	else:
-		Game.spawn(spawn_scene, global_position)
+	var spawner: Spawner = Game.spawn(preload("res://object/spawner.tscn"), global_position)
+	spawner.spawn_scene = spawn_scene
+	spawner.count = spawn_count
 	queue_free()
