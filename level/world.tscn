@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://object/safezone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://object/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://asset/font/quicksand/Quicksand-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://asset/font/quicksand/Quicksand-SemiBold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://asset/audio/music.ogg" type="AudioStream" id=8]
+[ext_resource path="res://script/indicator.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -246,6 +247,13 @@ stream = ExtResource( 8 )
 volume_db = -1.0
 autoplay = true
 bus = "Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Indicator" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 1024, 768 )
+script = ExtResource( 9 )
 
 [connection signal="game_over" from="ProgressManager" to="GameOverAnimation" method="_on_ProgressManager_game_over"]
 [connection signal="progress_changed" from="ProgressManager" to="ProgressDepth/ProgressText" method="_on_ProgressManager_progress_changed"]

@@ -10,10 +10,8 @@ func get_background_color() -> Color:
 	return background_color
 
 func _ready() -> void:
-#	OS.set_window_title("ldjam 53")
 	randomize()
 	set_background_color(background_color)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	
 	var level: int = 0
 	while true:
@@ -61,7 +59,6 @@ func _input(event: InputEvent) -> void:
 		return
 
 func reset_scene() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if get_tree().reload_current_scene() != OK:
 		assert(false, 'failed to reset current scene')
 
@@ -77,3 +74,10 @@ func play_sound(sound: AudioStreamPlayer, octave_range: float) -> void:
 	var clone := sound.duplicate()
 	get_tree().root.add_child(clone)
 	Game.death_sound(clone, octave_range)
+
+func get_scale() -> float:
+	var screen_size = get_tree().get_root().size
+	var set_width = ProjectSettings.get("display/window/size/width")
+	var set_height = ProjectSettings.get("display/window/size/height")
+	var scale = screen_size / Vector2(set_width, set_height)
+	return min(scale.x, scale.y)
