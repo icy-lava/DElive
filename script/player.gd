@@ -18,6 +18,7 @@ var boost_active: bool = false
 export var multishot_interval: int = 600
 var multishot_frames: int = 0
 
+var autofire := false
 onready var gun_initial_interval: int = gun.fire_interval
 onready var gun_boost_interval: int = gun_initial_interval / 2
 
@@ -44,10 +45,8 @@ func _physics_process(delta: float) -> void:
 		direction = (get_global_mouse_position() - position).normalized()
 	$Rotating.rotation = direction.angle()
 	
-#	health = min(health + delta * 0.2, max_health)
-	
 	# shooting
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") != autofire:
 		if gun.shoot():
 			var sound: AudioStreamPlayer = $ShootPlayer
 			sound.stop()
@@ -72,6 +71,8 @@ func _input(event: InputEvent) -> void:
 	var motion := event as InputEventMouseMotion
 	if motion and motion.relative != Vector2.ZERO:
 		using_controller = false
+	if event.is_action_pressed("autofire"):
+		autofire = not autofire
 
 func addBoidChain(count: int) -> void:
 	boid_chain = max(boid_chain + count, 0)
