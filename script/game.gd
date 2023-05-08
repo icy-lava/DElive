@@ -13,6 +13,7 @@ func _ready() -> void:
 #	OS.set_window_title("ldjam 53")
 	randomize()
 	set_background_color(background_color)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	
 	var level: int = 0
 	while true:
@@ -60,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 func reset_scene() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if get_tree().reload_current_scene() != OK:
 		assert(false, 'failed to reset current scene')
 

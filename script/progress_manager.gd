@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	if Game.get_nearest_player(Vector2.ZERO) == null:
 		if not player_died:
 			player_died = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			emit_signal("game_over")
 	
 	if get_level() == null:
