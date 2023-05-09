@@ -28,7 +28,7 @@ extents = Vector2( 256, 2432.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 2048.5, 1216 )
+extents = Vector2( 2944.5, 2112.5 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 1024
@@ -193,7 +193,7 @@ shape = SubResource( 11 )
 visible = false
 
 [node name="SafezoneShape" parent="Safezone" index="0"]
-position = Vector2( 1920.5, 1088 )
+position = Vector2( 1920.5, 1088.5 )
 shape = SubResource( 4 )
 
 [node name="ProgressManager" parent="." instance=ExtResource( 4 )]
