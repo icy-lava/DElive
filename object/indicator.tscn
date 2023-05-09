@@ -1,6 +1,56 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/indicator.gd" type="Script" id=1]
+[ext_resource path="res://asset/font/quicksand/Quicksand-SemiBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://script/pips.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+onready var player: Player = Game.get_nearest_player(Vector2.ZERO)
+var last_scale: float = -1
+
+func _ready() -> void:
+	update_timer()
+
+func _physics_process(delta: float) -> void:
+	update_timer()
+
+func get_boost_time() -> float:
+	if is_instance_valid(player):
+		return float(player.boost_frames) / Game.get_framerate()
+	return 0.0
+
+func update_timer() -> void:
+	var scale: float = Game.get_scale()
+	if last_scale != scale:
+		last_scale = scale
+		var font: DynamicFont = $BoostTimer.get_font(\"font\")
+		font.set(\"size\", int(round(32 / scale)))
+		position = Vector2(32, 0) / scale
+	var time := get_boost_time()
+	$BoostTimer.text = \"%0.1f\" % time
+	$BoostTimer.visible = time > 0
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
 
 [node name="Indicator" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Pips" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Boost" type="Node2D" parent="."]
+script = SubResource( 2 )
+
+[node name="BoostTimer" type="Label" parent="Boost"]
+margin_top = -192.0
+margin_right = 512.0
+margin_bottom = 192.0
+custom_colors/font_color = Color( 0.847059, 0.101961, 0.180392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0.0"
+valign = 1
